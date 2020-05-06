@@ -1,0 +1,9 @@
+{
+    "name": "@ef-class/util",
+    "version": "0.0.96",
+    "peerDependencies": {
+        "@angular/common": "^9.1.0",
+        "@angular/core": "^9.1.0",
+        "tslib": "^1.10.0"
+    }
+}

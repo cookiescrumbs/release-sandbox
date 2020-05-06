@@ -1,0 +1,200 @@
+{
+
+    "output" : {
+        "path": {
+            "base": "./workspace",
+            "relative": {
+                "entities": "/entities.ts",
+                "structure": "/structure.json"
+            }
+        }
+    },
+
+    "paths": {
+        "dist": "./dist",
+        "release": "./release"
+    },
+
+    "testingBootstrap": { 
+        "groupOfCommands": {
+            "commands": {
+                "first": { 
+                    "command": "echo",
+                    "options": ["this is the first command"]
+                }
+            }
+        }
+    },
+
+    "github": {
+        "release": { 
+            "commands": {
+                "generateChanegLog": {
+                    "command": "echo",
+                    "options": ["-p", "angular", "-i", "CHANGELOG.md", "-s"]
+                },
+                "add": {
+                    "command": "echo",
+                    "options": ["add", "./release", "package.json"]
+                },
+                "commit": { 
+                    "command": "echo",
+                    "options": ["-m", "chore(release): {{version}}", "-m", "[skip ci]"]
+                },
+                "push": {
+                    "command": "echo",
+                    "options": ["push", "--follow-tags", "-f", "-u", "origin", "master"]
+                },
+                "tag": { 
+                    "command": "echo",
+                    "options": ["tag", "-a", "{{version}}", "-m", "{{version}}"]
+                },
+                "generateRelease": {
+                    "command": "echo",
+                    "options": ["-p", "angular", "-t", "{{token}}"]
+                }
+            }
+        },
+        "push": {
+            "commands": {
+                "add": {
+                    "command": "echo",
+                    "options": ["add", "."]
+                },
+                "commit": { 
+                    "command": "echo",
+                    "options": ["-m", "chore(bump): Bumped to start working on version -> {{version}}", "-m", "[skip ci]"]
+                },
+                "push": {
+                    "command": "echo",
+                    "options": ["push", "--follow-tags", "-f", "-u", "origin", "master"]
+                }
+            }
+        },
+        "config": {
+            "commands": {
+                "push": {
+                    "command": "echo",
+                    "options": ["config", "--global", "push.default", "simple"]
+                },
+                "name": { 
+                    "command": "echo",
+                    "options": ["config", "--global", "user.name", "Sybil"]
+                },
+                "email": { 
+                    "command": "echo",
+                    "options": ["config", "--global", "user.email", "sybil@ef.com"]
+                }
+            }
+        }
+    },
+    
+    "projects": {
+
+        "applications": {
+            "common": {
+                "deployment": {
+                    "aws": {
+                        "account": "961920650950",
+                        "region": "eu-west-2"
+                    },
+                    "ssl": {
+                        "certificateArn": "arn:aws:acm:us-east-1:961920650950:certificate/b89b38df-e8ef-4895-8b89-3d5fafba97d9"
+                    },
+                    "bucket": {
+                        "name": "cse-web-apps-dev",
+                        "path": "master/{{id}}"
+                    },
+                    "dns": {
+                        "domain": "dev.content.ef.com",
+                        "subdomain": "{{id}}.app"
+                    }
+                },
+                "path": {
+                    "relative": {
+                        "index":"/src/app/main.ts",
+                        "tsconfig": "/tsconfig.app.json"
+                    }
+                },
+                "commands": {
+                    "test": {
+                        "command": "ng",
+                        "options": [ "test", "{{id}}", "--watch", "false" ]
+                    },
+                    "build": {
+                        "command": "ng",
+                        "options": [ "build", "{{id}}", "--watch", "false" ]
+                    },
+                    "lint": {
+                        "command": "ng",
+                        "options": [ "lint", "{{id}}", "--watch", "false" ]
+                    },
+                    "serve": {
+                        "command": "ng",
+                        "options": [ "serve", "{{id}}", "--watch", "false" ]
+                    }
+                }
+            }
+        },
+
+        "libraries": {
+            "common": {
+                "path": {
+                    "relative": {
+                        "index":"/src/index.ts",
+                        "tsconfig": "/tsconfig.lib.json"
+                    }
+                },
+                "commands": {
+                    "test": {
+                        "command": "ng",
+                        "options": [ "test", "{{id}}", "--watch", "false" ]
+                    },
+                    "build": {
+                        "command": "ng",
+                        "options": [ "build", "{{id}}", "--watch", "false" ]
+                    },
+                    "lint": {
+                        "command": "ng",
+                        "options": [ "lint", "{{id}}", "--watch", "false" ]
+                    }
+                },
+                "util": {
+                    "commands": {
+                        "test": {
+                            "command": "ng",
+                            "options": [ "test", "{{id}}", "--watch", "false" ]
+                        }
+
+                    }
+                }
+            }
+        },
+
+        "command-line-tools": {
+            "common": {
+                "path": {
+                    "relative": {
+                        "index":"/src/index.ts",
+                        "tsconfig": "/tsconfig.json"
+                    }
+                },
+                "commands": {
+                    "test": {
+                        "command": "mocha",
+                        "options": [ "-r", "ts-node/register", "--inspect", "\"{{path.base}}/**/*.spec.ts\"", "--watch", "--watch-extensions", "ts" ]
+                    },
+                    "build": {
+                        "command": "tsc",
+                        "options": [ "-p", "{{tsconfigPath}}", "--strictNullChecks", "false" ]
+                    },
+                    "lint": {
+                        "command": "ng",
+                        "options": [ "lint", "{{id}}", "--watch", "false" ]
+                    }
+                }
+            }
+        }
+    }   
+}
+
