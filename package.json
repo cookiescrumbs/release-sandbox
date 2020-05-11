@@ -1,6 +1,6 @@
 {
     "name": "@ef-class/class-web",
-    "version": "0.0.115",
+    "version": "0.0.121",
     "scripts": {
         "ng": "ng",
         "serve": "docker-compose -f .local/docker/dev.yml up --remove-orphans",
