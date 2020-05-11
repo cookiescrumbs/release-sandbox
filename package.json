@@ -1,15 +1,11 @@
 {
-    "name": "@ef-class/class-web",
+    "name": "release-sandbox",
     "version": "0.0.121",
     "scripts": {
-        "ng": "ng",
-        "serve": "docker-compose -f .local/docker/dev.yml up --remove-orphans",
-        "ef": "ef",
-        "test:cli": "export TS_NODE_PROJECT=$(pwd)/projects/command-line-tools/ef/tsconfig.json && mocha -r ts-node/register --inspect \"./projects/command-line-tools/ef/src/**/*.spec.ts\" --watch --watch-extensions ts",
-        "dev:cli": "export TS_NODE_PROJECT=$(pwd)/projects/command-line-tools/ef/tsconfig.json && nodemon --watch command-line-tools/**/*.ts --exec 'node --inspect -r ts-node/register ./projects/command-line-tools/ef/src/index.ts bump'",
-        "cli": "ts-node --project ./projects/command-line-tools/ef/tsconfig.json ./projects/command-line-tools/ef/src/index.ts",
-        "build:docker:class-web": "docker build -f .local/docker/class-web.Dockerfile -t class-web:dev .",
-        "run:docker:class-web": "docker run -v ${PWD}:/class-web -v /class-web/node_modules --name class-web -it --rm class-web:dev bash"
+        "build:docker:release-sandbox": "docker build -f .local/docker/release-sandbox.Dockerfile -t release-sandbox .",
+        "run:docker:release-sandbox": "docker run -v ${PWD}/dist:/release-sandbox/dist -v ${PWD}/package.json:/release-sandbox/package.json -v /release-sandbox/node_modules --name release-sandbox -it --rm release-sandbox bash",
+        "link:cli": "cd ./dist/command-line-tools/ef && npm link && cd -",
+        "git:clone":"git config --global credential.helper cache && git clone https://github.com/cookiescrumbs/release-sandbox.git"
     },
     "private": true,
     "dependencies": {},
