@@ -88,6 +88,98 @@
                 }
             }
         }
+    },
+    
+    "projects": {
+
+        "applications": {
+            "common": {
+
+                "path": {
+                    "relative": {
+                        "index":"/src/app/main.ts",
+                        "tsconfig": "/tsconfig.app.json"
+                    }
+                },
+                "commands": {
+                    "test": {
+                        "command": "ng",
+                        "options": [ "test", "{{id}}", "--watch", "false" ]
+                    },
+                    "build": {
+                        "command": "ng",
+                        "options": [ "build", "{{id}}", "--watch", "false" ]
+                    },
+                    "lint": {
+                        "command": "ng",
+                        "options": [ "lint", "{{id}}", "--watch", "false" ]
+                    },
+                    "serve": {
+                        "command": "ng",
+                        "options": [ "serve", "{{id}}", "--watch", "false" ]
+                    }
+                }
+            }
+        },
+
+        "libraries": {
+            "common": {
+                "path": {
+                    "relative": {
+                        "index":"/src/index.ts",
+                        "tsconfig": "/tsconfig.lib.json"
+                    }
+                },
+                "commands": {
+                    "test": {
+                        "command": "ng",
+                        "options": [ "test", "{{id}}", "--watch", "false" ]
+                    },
+                    "build": {
+                        "command": "ng",
+                        "options": [ "build", "{{id}}", "--watch", "false" ]
+                    },
+                    "lint": {
+                        "command": "ng",
+                        "options": [ "lint", "{{id}}", "--watch", "false" ]
+                    }
+                },
+                "util": {
+                    "commands": {
+                        "test": {
+                            "command": "ng",
+                            "options": [ "test", "{{id}}", "--watch", "false" ]
+                        }
+
+                    }
+                }
+            }
+        },
+
+        "command-line-tools": {
+            "common": {
+                "path": {
+                    "relative": {
+                        "index":"/src/index.ts",
+                        "tsconfig": "/tsconfig.json"
+                    }
+                },
+                "commands": {
+                    "test": {
+                        "command": "mocha",
+                        "options": [ "-r", "ts-node/register", "--inspect", "\"{{path.base}}/**/*.spec.ts\"", "--watch", "--watch-extensions", "ts" ]
+                    },
+                    "build": {
+                        "command": "tsc",
+                        "options": [ "-p", "{{tsconfigPath}}", "--strictNullChecks", "false" ]
+                    },
+                    "lint": {
+                        "command": "ng",
+                        "options": [ "lint", "{{id}}", "--watch", "false" ]
+                    }
+                }
+            }
+        }
     }
 }
 
