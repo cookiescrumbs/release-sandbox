@@ -5,3 +5,10 @@
 
 `cd ./dist/command-line-tools/ef && npm link && cd -`
 `git clone https://github.com/cookiescrumbs/release-sandbox.git`
+
+
+
+
+- First release .....
+
+
