@@ -49,3 +49,5 @@ Thumbs.db
 cdk.*
 
 __ngcc_entry_points__.json
+
+.token
