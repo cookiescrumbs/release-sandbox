@@ -1,0 +1,32 @@
+import { Logger } from '../logger/index';
+import { Interpolator } from '../interpolator/index';
+import { Shell } from '../shell';
+import { Observable } from 'rxjs';
+import { PackageJson } from '../package-json/index';
+export declare class Project {
+    readonly id: string;
+    readonly path: any;
+    readonly distPath: string;
+    readonly group: string;
+    readonly dependencies: string[];
+    protected _shell: Shell;
+    protected _packageJson: PackageJson;
+    protected _commandConfig: any;
+    protected _config: any;
+    protected _logger: Logger;
+    protected _interpolator: Interpolator;
+    private _fileReader;
+    constructor(config: any, logger: Logger, interpolator: Interpolator);
+    get name(): string;
+    test(): Observable<any>;
+    lint(): Observable<any>;
+    release(): Observable<any>;
+    deploy(aws: any): Observable<any>;
+    serve(): Observable<any>;
+    build(): Observable<any>;
+    bump(type: string): Observable<any>;
+    runTask(id: string): Observable<any>;
+    private _executeTask;
+    private _getDependencies;
+    protected _writePackageJson(): Observable<any>;
+}
