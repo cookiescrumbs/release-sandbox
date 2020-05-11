@@ -51,7 +51,7 @@
                     "options": ["tag", "-a", "{{version}}", "-m", "{{version}}"]
                 },
                 "generateRelease": {
-                    "command": "./node_modules/.bin/conventional-github-release",
+                    "command": "./node_modules/.bin/conventional-github-releaser",
                     "options": ["-p", "angular", "-t", "{{token}}"]
                 }
             }
