@@ -1,6 +1,6 @@
 {
     "name": "some-app",
-    "version": "0.0.109",
+    "version": "0.0.110",
     "peerDependencies": {
         "@ef-class/core": "latest",
         "@ef-class/util": "latest"
