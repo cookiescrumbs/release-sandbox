@@ -1,8 +1,0 @@
-{
-    "name": "some-cli",
-    "version": "0.0.2",
-    "peerDependencies": {
-        "@ef-class/core": "latest",
-        "@ef-class/util": "latest"
-    }
-}
