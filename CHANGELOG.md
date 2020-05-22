@@ -1,3 +1,7 @@
+## [0.0.9](https://github.com/cookiescrumbs/release-sandbox/compare/0.0.7...0.0.9) (2020-05-22)
+
+
+
 ## [0.0.8](https://github.com/cookiescrumbs/release-sandbox/compare/0.0.10...0.0.8) (2020-05-22)
 
 
