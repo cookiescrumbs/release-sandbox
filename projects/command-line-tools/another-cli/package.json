@@ -1,6 +1,6 @@
 {
     "name": "another-cli",
-    "version": "0.0.113",
+    "version": "0.0.114",
     "peerDependencies": {
         "@ef-class/core": "latest",
         "@ef-class/util": "latest"
