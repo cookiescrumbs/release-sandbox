@@ -15,77 +15,12 @@
         "release": "./release"
     },
 
-    "github": {
-        "updateReleaseFolder": {
-            "commands": {
-                "remove": {
-                    "command": "rm",
-                    "options": ["-rf", "./release"]
-                },
-                "copy": { 
-                    "command": "cp",
-                    "options": ["-rf", "./dist", "./release"]
-                }
-            }
-        },
-        "release": { 
-            "commands": {
-                "generateChanegLog": {
-                    "command": "./node_modules/.bin/conventional-changelog",
-                    "options": ["-p", "angular", "-i", "CHANGELOG.md", "-s"]
-                },
-                "add": {
-                    "command": "git",
-                    "options": ["add", "./release", "package.json"]
-                },
-                "commit": { 
-                    "command": "git",
-                    "options": ["commit", "-m", "chore(release): {{version}}", "-m", "[skip ci]"]
-                },
-                "push": {
-                    "command": "git",
-                    "options": ["push", "--follow-tags", "-f", "-u", "origin", "master"]
-                },
-                "tag": { 
-                    "command": "git",
-                    "options": ["tag", "-a", "{{version}}", "-m", "{{version}}"]
-                },
-                "generateRelease": {
-                    "command": "./node_modules/.bin/conventional-github-releaser",
-                    "options": ["-p", "angular", "-t", "{{token}}"]
-                }
-            }
-        },
-        "push": {
-            "commands": {
-                "add": {
-                    "command": "git",
-                    "options": ["add", "."]
-                },
-                "commit": { 
-                    "command": "git",
-                    "options": ["commit", "-m", "chore(bump): Bumped to start working on version -> {{version}}", "-m", "[skip ci]"]
-                },
-                "push": {
-                    "command": "git",
-                    "options": ["push", "--follow-tags", "-f", "-u", "origin", "master"]
-                }
-            }
-        },
+
+    "git": {
         "config": {
-            "commands": {
-                "push": {
-                    "command": "git",
-                    "options": ["config", "--global", "push.default", "simple"]
-                },
-                "name": { 
-                    "command": "git",
-                    "options": ["config", "--global", "user.name", "efcloud-build-bot"]
-                },
-                "email": { 
-                    "command": "git",
-                    "options": ["config", "--global", "user.email", "efcloud-build-bot@ef.com"]
-                }
+            "user": { 
+                "name":  "sybil",
+                "email": "sybil-dog@ef.com"
             }
         }
     },
