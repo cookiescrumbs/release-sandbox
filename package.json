@@ -12,8 +12,6 @@
     "devDependencies": {
         "conventional-changelog": "^3.1.18",
         "conventional-changelog-cli": "^2.0.31",
-        "conventional-github-releaser": "^3.1.3",
-        "@ef-class/util": "latest",
-        "@ef-class/core": "latest"
+        "conventional-github-releaser": "^3.1.3"
     }
 }
