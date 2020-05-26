@@ -4,7 +4,7 @@
     "scripts": {
         "build:docker:release-sandbox": "docker build -f .local/docker/release-sandbox.Dockerfile -t release-sandbox .",
         "run:docker:release-sandbox": "docker run -v ${PWD}/dist:/release-sandbox/dist -v ${PWD}/package.json:/release-sandbox/package.json -v /release-sandbox/node_modules --name release-sandbox -it --rm release-sandbox bash",
-        "link:cli": "cd ./dist/command-line-tools/ef && npm link && cd -",
+        "link:cli": "cd ./command-line-tools/ef && npm link && cd -",
         "git:clone": "git config --global credential.helper cache && git clone https://github.com/cookiescrumbs/release-sandbox.git"
     },
     "private": true,
