@@ -1,6 +1,6 @@
 {
     "name": "release-sandbox",
-    "version": "0.0.1",
+    "version": "0.0.13",
     "scripts": {
         "build:docker:release-sandbox": "docker build -f .local/docker/release-sandbox.Dockerfile -t release-sandbox .",
         "run:docker:release-sandbox": "docker run -v ${PWD}/dist:/release-sandbox/dist -v ${PWD}/package.json:/release-sandbox/package.json -v /release-sandbox/node_modules --name release-sandbox -it --rm release-sandbox bash",
@@ -12,6 +12,8 @@
     "devDependencies": {
         "conventional-changelog": "^3.1.18",
         "conventional-changelog-cli": "^2.0.31",
-        "conventional-github-releaser": "^3.1.3"
+        "conventional-github-releaser": "^3.1.3",
+        "@ef-class/util": "latest",
+        "@ef-class/core": "latest"
     }
 }
