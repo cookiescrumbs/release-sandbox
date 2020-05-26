@@ -50,3 +50,5 @@ cdk.*
 __ngcc_entry_points__.json
 
 .token
+
+command-line-tools
